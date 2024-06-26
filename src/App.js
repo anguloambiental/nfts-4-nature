@@ -14,14 +14,16 @@ function App() {
     event.preventDefault()
 
     const args = {
-      token: {
-        address: "0x8d04a8c79cEB0889Bdd12acdF3Fa9D207eD3Ff63",
-        tokenId: "314"
+      where: {collectionAddresses: [
+          "0xE169c2ED585e62B1d32615BF2591093A629549b6",
+          "0x8d04a8c79cEB0889Bdd12acdF3Fa9D207eD3Ff63",
+          nft
+        ]
       },
-      includeFullDetails: false // Optional, provides more data on the NFT such as all historical events
+      includeFullDetails: false
     }
-    
-    zdk.token(args)
+
+    zdk.collections(args)
       .then(data => console.log(data))
       .catch(e => console.log(e));
   }
