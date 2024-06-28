@@ -35,7 +35,7 @@ const NFTapi = async (walletAddress) => {
     // console.log(`token_id. ${nft.tokenId}`);
     // console.log(`token_id. ${nft.name}`);
     // console.log("fetching metadata for a Crypto Coven NFT...");
-    data['tokens'] = await alchemy.nft.getNftMetadata(
+    data['tokens'][i] = await alchemy.nft.getNftMetadata(
       `${nft.contract.address}`,
       `${nft.tokenId}`
     );
