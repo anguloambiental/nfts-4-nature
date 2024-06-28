@@ -1,27 +1,23 @@
 {
   "name": "nfts-4-nature",
-  "version": "1.0.0",
-  "description": "NFT's for nature",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anguloambiental/nfts-4-nature.git"
-  },
-  "keywords": [
-    "nfts",
-    "nature"
-  ],
-  "author": "Dorian Posternak and Javier Vega",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anguloambiental/nfts-4-nature/issues"
-  },
-  "homepage": "https://github.com/anguloambiental/nfts-4-nature#readme",
   "dependencies": {
     "alchemy-sdk": "^3.3.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "next": "14.2.4",
+    "node-fetch": "^3.3.2",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4"
   }
 }
