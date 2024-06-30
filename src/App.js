@@ -5,6 +5,7 @@ import { useState } from 'react';
 function App() {
   let [wallet, setWallet] = useState('')
   let [token_url, setTokenUrl] = useState([])
+  let [isLogedIn, setLogIn] = useState(false)
   let token_images = []
 
   function getImages(event){
@@ -17,20 +18,30 @@ function App() {
     })
   }
 
+  function handleLogIn(){
+    if (!isLogedIn){
+      LogIn().then(logged => {
+        if (logged){
+          setLogIn(true)
+        }
+      })
+    }
+  }
+
   return (
     <div className="App">
       <form onSubmit={e => getImages(e)}>
         <input type='text' placeholder='wallet' onChange={e => setWallet(e.target.value)} />
         <input type='submit' value='get NFTs' />
       </form>
-      <button onClick={LogIn}>
+      <button onClick={e => handleLogIn()}>
         <span>Log In / Get Provider</span>
       </button>
       <button onClick={getData}>
         <span>Get Metamask Data / Signer</span>
       </button>
       <button onClick={claimNFT}>
-        <span>Get Metamask Data / Signer</span>
+        <span>Mint NFT</span>
       </button>
       {token_url.map(url => <img src={url} />)}
     </div>

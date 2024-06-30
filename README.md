@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+### Start project
+- npm install
+- npm start
+**Created with Create React App (CRA)**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Dependencies
+- "alchemy-sdk": "^3.3.1",
+    - Used to get all the NFT data from the blockchain
+- "ethers": "^6.13.1"
+    - Used to interact with the contracts
+    - Used to interact with wallets
 
-## Available Scripts
+### Get Wallet and Provider
 
-In the project directory, you can run:
+Concepts:
+- Provider = The provider of information to connect to the chains
+    - In this project we grab Metamask provider through window.etherium
+        - provider = new ethers.BrowserProvider(window.ethereum)
+    - Once you get the provider you can get the information of wallet
+        - Signer
+        - Network
+        - And more, in this project only using signer
+- Signer = The wallet information to interact with the blockchain
+    - signer.address = Wallet address
+    - there is mor information inside the signer objet
+    - when you want to interact with a contract you need to send the whole signer object
+        - const mintNFTContract = new ethers.Contract(contract_address, abi, signer)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Steps to upload images to be minted through contract
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Go to [Pinata](https://app.pinata.cloud/pinmanager)
+2. Upload image
+3. Copy CID
+4. Create JSON metadata for NFT
+    {
+        "name": "Ceiba3 Tree",
+        "description": "Ceiba3 Tree",
+        "image": "ipfs://COPIED_CID",
+        "attributes": [
+            {"trait_type":"Plant","value":"Tree"}
+        ]
+    }
+5. Upload file to [Pinata](https://app.pinata.cloud/pinmanager)
+6. Copy CID
+7. Add that CID you need to send to create the Mint
+    **THE NFT MINT URI NEED TO BE JSON METADATA FILE**
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Create Smart Contract
 
-### `npm run build`
+There are multiple ways to do it, in this project we took the aproach of using:
+- [Open Zepelin Wizard](https://wizard.openzeppelin.com/)
+    - To create the template of contract
+    - Tamplate ERC721, with Mint, AI, URI storage check boxes
+    - Click button Open in Remix
+- [Ramix](https://remix.ethereum.org/#lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.26+commit.8a97fa7a.js)
+    - We used it to edit the contract and Deploy to BlockChain
+    - After creating template click on Open in Remix
+    - Change Safe Mint function to be able to Pay to Mint from any Wallet
+        - - Copy of SafeMint but made it payable and available to any wallet
+            - function safeMint(address to, string memory uri) public onlyOwner
+            - function payToMint(address to, string memory uri) public payable returns (uint256)
+    - Compile contract to sava
+    - Copy abi from contract to a JSON file and save it inside project
+        - On bottom of menu there is a button __copy abi__
+    - Go to Deploy and Run transactions on menu tab (has look alike ether logo)
+    - Connect Metamask
+    - Add Initial Owner Addres and Deploy
+        - It is and orange button and besides the input for owner address
+    - Go to section Deployed contracts and copy the contract address
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Interact with contract to Mint NFT
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Make sure that ethers is installed in project
+2. Make sure that you have the JSON abi file
+3. Make sure you have the contract address
+4. Instanciate contract
+    - const mintNFTContract = new ethers.Contract(contract_address, abi, signer)
+    - Once this is executed you will have an object to interact with the contract funcitons
+    - const newToken = await mintNFTContract.payToMint(signer.address, metadataUri, {
+        value: ethers.parseEther('0.0001')
+      })
+    - Make sure that the **metadataUri is the CID of the JSON metadata** you want to mint
+    - Since it is a payable object you need to send the amount to be paid, it has to be more than the one writen in the contract
+    - Need to handle contract errors as exceptions
+        - For example if the amount sent is less than the amount on the contract you'll catch the error to get the message
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Get all NFT from a wallet address
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Make sure to have installed Alchemy Sdk
+- Get [Alchemy API](https://dashboard.alchemy.com/)
+    - Create new app, after creation API Key will bee on top right corner
+- Configure Settings
+    - const settings = {
+        apiKey: ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
+        network: Network.BASE_SEPOLIA, // Replace with your network.
+      };
+- Instanciate sdk
+    - const alchemy = new Alchemy(settings);
+- Get owned NFT's contract address
+    - const nfts = await alchemy.nft.getNftsForOwner(address)
+- Get NFT's metadata for each address
+    - data['tokens'][i] = await alchemy.nft.getNftMetadata(contract_address, tokenId);
