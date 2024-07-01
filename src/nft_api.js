@@ -67,7 +67,7 @@ export async function getData (){
   console.log(signer, network, balance)
 }
 
-async function getNFTofContract(signer, contract){
+async function getNFTofContract(owner, contract){
   const settings = {
     apiKey: 'nG_L8EZrdYAp--XTv9uL7DhkVfrndaJF', // Replace with your Alchemy API Key.
     network: Network.BASE_SEPOLIA, // Replace with your network.
@@ -79,7 +79,9 @@ async function getNFTofContract(signer, contract){
     contractAddresses: contract
   };
 
-  //return await alchemy.nft.getNftsForOwner(signer.address, options);
+  let nfts = await alchemy.nft.getNftsForOwner(owner, options);
+
+  return nfts
 }
 
 export async function claimNFT (contract_address){
@@ -93,7 +95,7 @@ export async function claimNFT (contract_address){
     value: ethers.parseEther('0.0001')
   })
   const tokenId = await mintNFTContract.count()
-  const nfts = getNFTofContract(signer.address, contract_address)
+  const nfts = await getNFTofContract(signer.address, contract_address)
 
   return {
     "signer": signer.address,
