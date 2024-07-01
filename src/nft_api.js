@@ -9,7 +9,7 @@ let balance = null
 export async function getNFTs (walletAddress) {
   // Optional Config object, but defaults to demo api-key and eth-mainnet.
   const settings = {
-    apiKey: 'API_KEY', // Replace with your Alchemy API Key.
+    apiKey: 'nG_L8EZrdYAp--XTv9uL7DhkVfrndaJF', // Replace with your Alchemy API Key.
     network: Network.BASE_SEPOLIA, // Replace with your network.
   };
 
@@ -67,22 +67,41 @@ export async function getData (){
   console.log(signer, network, balance)
 }
 
-export async function claimNFT (){
+async function getNFTofContract(signer, contract){
+  const settings = {
+    apiKey: 'nG_L8EZrdYAp--XTv9uL7DhkVfrndaJF', // Replace with your Alchemy API Key.
+    network: Network.BASE_SEPOLIA, // Replace with your network.
+  };
+
+  const alchemy = new Alchemy(settings);
+
+  let options = {
+    contractAddresses: contract
+  };
+
+  //return await alchemy.nft.getNftsForOwner(signer.address, options);
+}
+
+export async function claimNFT (contract_address){
+
+  await LogIn()
+  await getData()
   const abi = require('./abi.json')
-  let contract_address = "0x8e18366b4Fef61d31B0DB085Ee139626a904292D"
   const mintNFTContract = new ethers.Contract(contract_address, abi, signer)
-  // const claimToken = await mintNFTContract.nextTokenIdToClaim()
-  // const tokenUri = await mintNFTContract.tokenURI(claimToken)
-  const metadataUri = "QmbmjQfvu2NQY9nKpb2BmamyNNELKcxgto8NqwHvEJiyG9"
-  const newToken = await mintNFTContract.payToMint(signer.address, metadataUri, {
+  const metadataUri = "QmNMFinsXhwSw8Vf8ZiEWpYdMePzSj8jS55sM6HjzXaNSF"
+  const newTransaction = await mintNFTContract.payToMint(signer.address, metadataUri, {
     value: ethers.parseEther('0.0001')
   })
- // const newToken = await mintNFTContract.tokenURI(0)
-  // console.log('claimToken', claimToken)
-  // console.log('tokenUri', tokenUri)
-  // let newToken = await provider.getBalance(signer.address)
-  // newToken = ethers.parseEther('0.05')
-  console.log('newToken', newToken)
+  const tokenId = await mintNFTContract.count()
+  const nfts = getNFTofContract(signer.address, contract_address)
+
+  return {
+    "signer": signer.address,
+    "tokenId": tokenId,
+    "contract": contract_address,
+    "transaction": newTransaction,
+    "nfts": nfts
+  }  
 }
 
 export default { getNFTs, claimNFT, LogIn, getData }

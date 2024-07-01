@@ -18,16 +18,29 @@ function App() {
     })
   }
 
-  function mintNFT(){
-    let contract_address = "0x8e18366b4Fef61d31B0DB085Ee139626a904292D"
-    claimNFT(contract_address).then(tokenData => {
-        console.log(tokenData)
-    })
+  function handleLogIn(){
+    if (!isLogedIn){
+      LogIn().then(logged => {
+        if (logged){
+          setLogIn(true)
+        }
+      })
+    }
   }
 
   return (
     <div className="App">
-      <button onClick={e => mintNFT()}>
+      <form onSubmit={e => getImages(e)}>
+        <input type='text' placeholder='wallet' onChange={e => setWallet(e.target.value)} />
+        <input type='submit' value='get NFTs' />
+      </form>
+      <button onClick={e => handleLogIn()}>
+        <span>Log In / Get Provider</span>
+      </button>
+      <button onClick={getData}>
+        <span>Get Metamask Data / Signer</span>
+      </button>
+      <button onClick={claimNFT}>
         <span>Mint NFT</span>
       </button>
       {token_url.map(url => <img src={url} />)}
