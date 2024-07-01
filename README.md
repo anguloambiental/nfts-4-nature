@@ -1,3 +1,13 @@
+In the bustling city of Mexico City, there exists a remarkable haven known as Ceiba3. Here, art and nature converge in a beautiful and purposeful union, inviting individuals to partake in a truly inspiring experience.
+
+At Ceiba3, talented artists craft stunning NFTs inspired by the city's parks, offering a glimpse into the beauty that surrounds us. By acquiring these unique digital treasures, participants not only support the artists but also contribute to the preservation and rejuvenation of the parks that are so dear to our hearts.
+
+As users delve into the world of Ceiba3, they embark on a journey of exploration and creativity, immersing themselves in a vibrant community that champions art, nature, and technological innovation. This platform serves as a beacon for the growing web3 community, providing a space where individuals can connect, learn, and thrive together.
+
+Minting NFTs at Ceiba3 is not just a transaction; it is a joyful and seamless experience that transforms the act of collecting art into a fun and rewarding adventure. With user-friendly features and a commitment to accessibility, Ceiba3 makes it easy for everyone to participate in this exciting new frontier of digital art.
+
+By joining Ceiba3, individuals not only support environmental conservation and artistic expression but also become part of a movement that is shaping the future of the web3 community. Together, we can embrace the power of technology, creativity, and community to create a more vibrant, sustainable, and connected world for all.
+
 ### Start project
 - npm install
 - npm start
