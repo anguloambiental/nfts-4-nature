@@ -8,6 +8,8 @@ const LogInPage = () => {
 
     const navigate = useNavigate()
 
+    console.log(already_logged)
+
     function logIn(){
         if (!already_logged){
             LogIn().then(logged => {
@@ -24,15 +26,27 @@ const LogInPage = () => {
         console.log('redirect to sign up page')
     }
 
+    let libelula = process.env.PUBLIC_URL + "/images/Libelula.png"
+    let main = process.env.PUBLIC_URL + "/images/Main.png"
+    let invert = { "transform": "scaleX(-1)" }
+
     return (
-        <div className="log-in-container">
-            <div className="log-in-title">
-                <img className="libelula" src="./images/Libelula.png" alt="libelula" />
-                <h1>CEIBA 3.0</h1>
-                <img className="libelula" src="./images/Libelula.png" alt="libelula" />
+        <div className='main-cont'>
+            <div className="log-in-container">
+                <div className="log-in-title row-cont">
+                    <img src={libelula} style={invert} alt="libelula" />
+                    <h1 className='title'>CEIBA 3.0</h1>
+                    <img src={libelula} alt="libelula" />
+                </div>
+                <div className="login-image column-cont">
+                    <img src={main} alt="libelula" />
+                    <h3 className='title'>NFTS FOR NATURE</h3>
+                </div>
+                <div className='space-around-cont buttons-cont'>
+                    <button className='square-button' onClick={e => logIn()}>Log In</button>
+                    <button className='square-button' onClick={signUp}>Sign Up</button>
+                </div>
             </div>
-            <button className='square-button' onClick={e => logIn()}>Log In</button>
-            <button className='square-button' onClick={signUp}>Sign Up</button>
         </div>
     )
 }

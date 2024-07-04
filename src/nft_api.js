@@ -84,11 +84,11 @@ async function getNFTofContract(owner, contract){
   return nfts
 }
 
-export async function claimNFT (contract_address){
+export async function getNFT (contract_address){
 
   await LogIn()
   await getData()
-  const abi = require('./abi.json')
+  const abi = require('./abi/abi.json')
   const mintNFTContract = new ethers.Contract(contract_address, abi, signer)
   const metadataUri = "QmNMFinsXhwSw8Vf8ZiEWpYdMePzSj8jS55sM6HjzXaNSF"
   const newTransaction = await mintNFTContract.payToMint(signer.address, metadataUri, {
@@ -106,4 +106,6 @@ export async function claimNFT (contract_address){
   }  
 }
 
-export default { getNFTs, claimNFT, LogIn, getData }
+const functions = { getNFTs, getNFT, LogIn, getData }
+
+export default functions
