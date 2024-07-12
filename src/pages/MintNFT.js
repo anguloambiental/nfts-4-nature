@@ -8,7 +8,8 @@ function MintNFT() {
   let token_images = []
 
   function mintNFT(){
-    let contract_address = "0x8e18366b4Fef61d31B0DB085Ee139626a904292D"
+    // let contract_address = "0x7Ad9d4557E1b7a14eEFf8a8cdA7762328251177F"
+    let contract_address = "0xc70C35aCA682217d02bC3ceF2fc01C940dA9d3E6"
     getNFT(contract_address).then(tokenData => {
       tokenData.nfts.ownedNfts.forEach(nft => {
         token_images.push(nft.image.pngUrl)

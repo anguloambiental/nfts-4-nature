@@ -1,0 +1,17 @@
+account1 -> 0.329 
+artist -> 0.0048
+third -> 0.0006
+
+price -> 0.001
+sharePercentage, same for both (60 total) -> 30% =  0.0003
+owner fee -> 40% = 0.0004
+
+expected results
+account1 -> 0.329 + 0.0004 - 0.001 (payed for nft mint) = 0.3284
+artist -> 0.0048 + 0.0003 = 0.0051
+third -> 0.0006 + 0.0006 = 0.0009
+
+real results PASSED
+ccount1 -> 0.329 
+artist -> 0.0051
+third -> 0.3284

@@ -88,18 +88,19 @@ export async function getNFT (contract_address){
 
   await LogIn()
   await getData()
-  const abi = require('./abi/abi.json')
+  const abi = require('./abi/split_abi.json')
   const mintNFTContract = new ethers.Contract(contract_address, abi, signer)
-  const metadataUri = "QmNMFinsXhwSw8Vf8ZiEWpYdMePzSj8jS55sM6HjzXaNSF"
-  const newTransaction = await mintNFTContract.payToMint(signer.address, metadataUri, {
-    value: ethers.parseEther('0.0001')
+  const metadataUri = "QmP7CUTQKDBc43QiuBYjrq73gx2cwfmM19FQGFkUZwopzi/3.json"
+  const third = "0x51413CD4A20A7Bbc6fEBc869c6d152Df9dac2d09"
+  const newTransaction = await mintNFTContract.payToMint(
+    signer.address, metadataUri, third,{
+      value: ethers.parseEther('0.001')
   })
-  const tokenId = await mintNFTContract.count()
   const nfts = await getNFTofContract(signer.address, contract_address)
+  
 
   return {
     "signer": signer.address,
-    "tokenId": tokenId,
     "contract": contract_address,
     "transaction": newTransaction,
     "nfts": nfts
