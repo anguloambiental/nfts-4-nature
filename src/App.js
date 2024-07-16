@@ -1,50 +1,19 @@
-import './App.css';
-import { getNFTs, claimNFT, LogIn, getData } from './nft_api';
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LogInPage from "./pages/LogInPage"
+import Maps from "./pages/Maps"
+import Home from "./pages/Home"
+import MintNFT from "./pages/MintNFT";
 
 function App() {
-  let [wallet, setWallet] = useState('')
-  let [token_url, setTokenUrl] = useState([])
-  let [isLogedIn, setLogIn] = useState(false)
-  let token_images = []
-
-  function getImages(event){
-    event.preventDefault()
-    getNFTs(wallet).then(ownedNFT => {
-      ownedNFT.tokens.forEach(token => {
-        token.name === 'poop' ? console.log('no image') : token_images.push(token.image.pngUrl)
-      })
-      setTokenUrl(token_images)
-    })
-  }
-
-  function handleLogIn(){
-    if (!isLogedIn){
-      LogIn().then(logged => {
-        if (logged){
-          setLogIn(true)
-        }
-      })
-    }
-  }
-
   return (
-    <div className="App">
-      <form onSubmit={e => getImages(e)}>
-        <input type='text' placeholder='wallet' onChange={e => setWallet(e.target.value)} />
-        <input type='submit' value='get NFTs' />
-      </form>
-      <button onClick={e => handleLogIn()}>
-        <span>Log In / Get Provider</span>
-      </button>
-      <button onClick={getData}>
-        <span>Get Metamask Data / Signer</span>
-      </button>
-      <button onClick={claimNFT}>
-        <span>Mint NFT</span>
-      </button>
-      {token_url.map(url => <img src={url} />)}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<LogInPage />} />
+        <Route path="home" element={<Home />} />
+        <Route path="maps" element={<Maps />} />
+        <Route path="mint" element={<MintNFT />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
