@@ -181,6 +181,48 @@ html, body, #root{
   padding-right: 2.5%;
 }
 
+.park_container{
+  width: 1208px;
+  height: 770px;
+}
+
+.button_container{
+  width: 1208px;
+  height: 770px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.hex_button{
+  height: 86px;
+  width: 132px;
+  border-style: solid;
+  border-width: 0.25px;
+  opacity: 0.5;
+  border-color: rgb(0,0,0,0);
+}
+
+.half-heigh{
+  height: 48px;
+}
+
+.smaller{
+  width: 90px;
+}
+
+.bigger{
+  width: 162px;
+}
+
+.active{
+  background-color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
