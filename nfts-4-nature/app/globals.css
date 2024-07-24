@@ -182,13 +182,21 @@ html, body, #root{
 }
 
 .park_container{
-  width: 1208px;
-  height: 770px;
+  width: 1000px;
+  height: 570px;
+}
+
+.park_image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: 1208px;
+  max-height: 770px;
 }
 
 .button_container{
-  width: 1208px;
-  height: 770px;
+  width: 1000px;
+  height: 570px;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -199,8 +207,8 @@ html, body, #root{
 }
 
 .hex_button{
-  height: 86px;
-  width: 132px;
+  height: 11%;
+  width: 11%;
   border-style: solid;
   border-width: 0.25px;
   opacity: 0.5;
@@ -208,19 +216,30 @@ html, body, #root{
 }
 
 .half-heigh{
-  height: 48px;
+  height: 6%;
 }
 
 .smaller{
-  width: 90px;
+  width: 8%;
 }
 
 .bigger{
-  width: 162px;
+  width: 12%;
 }
 
-.active{
+.active:hover{
   background-color: red;
+}
+
+.sneak-peak{
+  width: 40%;
+  height: 60%;
+}
+
+.sneak-peak > img{
+  width: 768px;
+  height: 354px;
+  object-fit: contain;
 }
 
 @keyframes App-logo-spin {
