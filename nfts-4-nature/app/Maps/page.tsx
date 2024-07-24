@@ -1,18 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from 'next/navigation'
 
 const Maps = () => {
 
     const [sneak_peak, setSneak] = useState("images/Button.png")
 
-    const rand_token_id = Math.floor(Math.random() * 6)
-    const rand_token_id_1 = Math.floor(Math.random() * 6)
-    const rand_token_id_2 = Math.floor(Math.random() * 6)
+    const router = useRouter()
 
     function getNFT(element: any){
-        console.log('click')
-        console.log(element.attributes['data-token'].value)
+        const nft = element.attributes['data-token'].value
+        router.push(`/Mint/${nft}`)
     }
 
     function renderNFT(element: any){
