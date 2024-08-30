@@ -26,7 +26,7 @@ const Maps = () => {
             <div className="row-cont">
                 <div className="column-cont sneak-peak">
                     <img src={sneak_peak} alt="NFT Sneak Peak" />
-                    <span>Hover the mouse to see the NFT's</span>
+                    <span>Hover the mouse to see the NFT&apos;s</span>
                     <span>Click if you want buy one!</span>
                     <span>30% goes to artist</span>
                     <span>70% goes to park and mantenance</span>
