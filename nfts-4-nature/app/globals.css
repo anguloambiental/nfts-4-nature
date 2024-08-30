@@ -1,0 +1,274 @@
+*{
+  margin: 0;
+  padding: 0;
+ }
+ 
+ button{
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+ }
+
+ button:hover{
+  cursor: pointer;
+ }
+
+html, body, #root{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.main-cont{
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgb(252, 142, 158), rgb(252, 252, 198));
+}
+
+.image-button{
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-button:hover{
+  cursor: pointer;
+}
+
+.image-button > img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.square-button{
+  display: block;
+  background-color: rgb(53, 0, 139);
+  color: #f7efac;
+  padding: 15px;
+  min-width: 260px;
+  min-height: 60px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+
+}
+
+.log-in-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url("/images/LogIn_Background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: right;
+}
+
+.row-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.space-around-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.log-in-title{
+  height: 14%;
+  width: 100%;
+}
+
+.log-in-title > img{
+  width: 20%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.login-image{
+  width: 100%;
+  height: 30%;
+}
+
+.login-image > img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.buttons-cont{
+  margin-top: 5%;
+  width: 100%;
+  height: 15%;
+  gap: 5%;
+}
+
+.profile-hdr{
+  width: 100%;
+  height: 45%;
+}
+
+.mint-hdr{
+  width: 100%;
+  height: 60%;
+  align-items: flex-start;
+}
+
+.mint-hdr > img{
+  width: 10%;
+  height:80%;
+  object-fit: contain;
+}
+
+.profile-hdr > img{
+  width: 15%;
+  height:100%;
+  object-fit: contain;
+}
+
+.hdr-img{
+  justify-content: space-around;
+  height: 100%;
+  width: 60%;
+}
+
+.hdr-img > img{
+  height: 50%;
+  object-fit: contain;
+}
+
+.profile-buttons{
+  height: 45%;
+  width: 100%;
+}
+
+.profile-buttons > .row-cont{
+  height: 50%;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.profile-buttons > .row-cont > .image-button{
+  height: 100%;
+  width: 35%;
+}
+
+
+.mint-nft{
+  background-color: gray;
+  height: 96%;
+  width: 96%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.nft-image-cont{
+  width: 100%;
+  background-color: red;
+  object-fit: contain;
+  margin-top: 5%;
+}
+
+.nft-image-cont > img{
+  width: 20%;
+  height: auto;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+.park_container{
+  width: 1000px;
+  height: 570px;
+}
+
+.park_image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: 1208px;
+  max-height: 770px;
+}
+
+.button_container{
+  width: 1000px;
+  height: 570px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.hex_button{
+  height: 11%;
+  width: 11%;
+  border-style: solid;
+  border-width: 0.25px;
+  opacity: 0.5;
+  border-color: rgb(0,0,0,0);
+}
+
+.half-heigh{
+  height: 6%;
+}
+
+.smaller{
+  width: 8%;
+}
+
+.bigger{
+  width: 12%;
+}
+
+.active:hover{
+  background-color: red;
+}
+
+.sneak-peak{
+  width: 40%;
+  height: 60%;
+}
+
+.sneak-peak > img{
+  width: 768px;
+  height: 354px;
+  object-fit: contain;
+}
+
+.image{
+  width: 100%;
+  height:80%;
+  object-fit: contain;
+}
+
+.full-height{
+  height: 100%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
