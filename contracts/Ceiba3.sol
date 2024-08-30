@@ -13,19 +13,22 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
     uint8 public artistPercentage;
     uint8 public noxPercentage;
     uint96 public royaltyFee;
-    address payable artist;
     address payable nox;
+    uint8 constant MAXMINTS = 3;
 
-    mapping (string => uint8) existingUri;
+    struct nftControl {
+        address artistWallet;
+        uint8 timesMinted;
+    }
+
+    mapping(string => nftControl)  public nftInfo;
 
     constructor(
         address initialOwner,
-        address payable _artist,
         address payable _nox)
     ERC721("Ceiba3", "CB3")
     Ownable(initialOwner) 
     {
-        artist = _artist;
         nox = _nox;
         royaltyFee = 500; // 5%
         artistPercentage = 30;
@@ -38,8 +41,6 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
     }
-
-    // The following functions are overrides required by Solidity.
 
     function tokenURI(uint256 tokenId)
         public
@@ -59,27 +60,31 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    // Adding a payable addres to be able to transfer to wallet sent from front (extra)
-    // Also on the construction of contract added a payable address (benificiary)
-    // You instanciate a payable object with a wallet address 
-    // Payable object has transfer function only needing the balance
-    // The addres of transfer function is the payable object instanciated address
+    function addToMap(
+        address _artistWallet,
+        string memory _uri
+    ) public onlyOwner {
+        nftControl storage newMint = nftInfo[_uri];
+        newMint.artistWallet = _artistWallet;
+        newMint.timesMinted = 0;
+    }
 
     function payToMint(
         address to,
         string memory uri
     ) public payable returns (uint256){
-        require(existingUri[uri] != 1, 'NFT already minted!');
+        require(nftInfo[uri].timesMinted < MAXMINTS, "Maximum NFT Minted");
         require(msg.value == mintPrice, "Ether sent is not correct");
 
         uint256 tokenId = _nextTokenId++;
+        nftInfo[uri].timesMinted += 1;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
-        _setTokenRoyalty(tokenId, artist, royaltyFee);
+        _setTokenRoyalty(tokenId, nftInfo[uri].artistWallet, royaltyFee);
 
         uint256 artistShare = (msg.value * artistPercentage) / 100;
         uint256 noxShare = (msg.value * noxPercentage) / 100;
-        artist.transfer(artistShare);
+        payable(nftInfo[uri].artistWallet).transfer(artistShare);
         nox.transfer(noxShare);
         // create the payable object from contract owner
         payable(owner()).transfer(address(this).balance);
