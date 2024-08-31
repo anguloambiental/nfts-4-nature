@@ -23,15 +23,15 @@ export async function LogIn() {
 export async function getNFT (token: string){
     const provider = new ethers.BrowserProvider(window.ethereum)
     const signer = await provider.getSigner()
-    const contract = '0x1F5a97Fd2b2eC3bB060723398caA4bb7a34b6c07'
+    const contract = '0x75C80A8dfF0F553Ff658bf7e5398a9D3515660d2'
     const abi = require('./abi/split_royalties_abi.json')
     const mintNFTContract = new ethers.Contract(contract, abi, signer)
-    const metadataUri = `ipfs://QmP7CUTQKDBc43QiuBYjrq73gx2cwfmM19FQGFkUZwopzi/${token}.json`
+    const metadataUri = `ipfs://QmVyMgME2qnfXXZvGa3oyepCL6PNFURXftT6ti511jh2Dd/${token}.json`
     const newTransaction = await mintNFTContract.payToMint(
       signer.address, metadataUri,{
         value: ethers.parseEther('0.001')
     })
-    
+
     return {
       "signer": signer.address,
       "transaction": newTransaction

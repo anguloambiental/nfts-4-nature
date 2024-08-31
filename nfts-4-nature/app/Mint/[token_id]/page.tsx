@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { token_id: string } }) {
       <img src={libelula} style={invert} alt="libelula" />
       <div className='column-cont hdr-img'>
         <h1 className='title'>GET THIS NFT</h1>
-        <img src={`/images/${params.token_id}.png`} alt="libelula" />
+        <img src={`/images/piezas/${params.token_id}.png`} alt="libelula" />
         <h3 className='title'>AND SUPPORT THE PARK!</h3>
       </div>
       <img src={libelula} alt="libelula" />
