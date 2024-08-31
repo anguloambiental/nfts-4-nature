@@ -35,6 +35,6 @@ export default function Page({ params }: { params: { token_id: string } }) {
       </div>
       <h2>{info.attributes[0].value}</h2>
     </div>
-    <button className='square-button' onClick={e => getNFT(params.token_id)}>MINT THIS NFT</button>
+    <button className='square-button' onClick={e => getNFT(params.token_id.split('.')[0])}>MINT THIS NFT</button>
   </div>)
 }
