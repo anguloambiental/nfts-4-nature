@@ -2,6 +2,9 @@
 
 import { useRouter } from 'next/navigation'
 import { LogIn } from './nft_api'
+
+declare var window: any
+
 const LogInPage = () => {
 
     let message: void | string
@@ -9,9 +12,9 @@ const LogInPage = () => {
     async function signUp(){
         const accepted = await LogIn()
         if (accepted != 1) {
-            message = accepted == 0 ? router.push('/NoWallet') : 'Rejected'
+            window.location = 'https://metamask.app.link/dapp/ceiba3.org';
         }else{
-            router.push('/Home')
+            router.push('/Maps')
         }
         console.log(message)
     }

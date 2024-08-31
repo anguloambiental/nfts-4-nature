@@ -5,18 +5,25 @@ import { useRouter } from 'next/navigation'
 
 const Maps = () => {
 
-    const [sneak_peak, setSneak] = useState("images/piezas/2.png")
+    const [sneak_peak, setSneak] = useState("images/piezas/0.mp4")
+    const [sneak_vid, setVid] = useState(true)
 
     const router = useRouter()
 
     function getNFT(element: any){
         const nft = element.attributes['data-token'].value
-        router.push(`/Mint/${nft.split(".")[0]}`)
+        router.push(`/Mint/${nft}`)
     }
 
     function renderNFT(element: any){
         const name = element.attributes['data-token'].value
-        setSneak(`images/piezas/${name}`)
+        if(name.split('.')[1] == 'mp4'){
+            setVid(true)
+            setSneak(`images/piezas/${name}`)
+        }else{
+            setVid(false)
+            setSneak(`images/piezas/${name}`)
+        }
     }
 
     return (
@@ -25,7 +32,9 @@ const Maps = () => {
             <h3>IZTAPALAPA</h3>
             <div className="row-cont">
                 <div className="column-cont sneak-peak">
-                    <img src={sneak_peak} alt="NFT Sneak Peak" />
+                    {sneak_vid ?  <video width="320" height="240" controls>
+                        <source src={sneak_peak} type="video/mp4" />
+                    </video>  : <img src={sneak_peak} alt="NFT Sneak Peak" />}
                     <span>Hover the mouse to see the NFT&apos;s</span>
                     <span>Click if you want buy one!</span>
                     <span>30% goes to artist</span>
@@ -38,7 +47,7 @@ const Maps = () => {
                         <div data-token="0.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active smaller" />
+                        className="hex_button smaller active " />
                         <div data-token="1.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
@@ -46,38 +55,36 @@ const Maps = () => {
                         <div data-token="2.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
+                        className="hex_button smaller active" />
                         <div data-token="3.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
+                        className="hex_button smaller active" />
+                        <div className="hex_button " />
+                        <div className="hex_button" />
+                        <div className="hex_button" />
+                        <div className="hex_button" />
                         <div data-token="4.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
+                        className="hex_button active" />
                         <div data-token="5.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
+                        className="hex_button bigger active" />
                         <div data-token="6.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button smaller" />
+                        className="hex_button active " />
                         <div data-token="7.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
                         className="hex_button active" />
+                        <div className="hex_button" />
+                        <div className="hex_button" />
+                        <div className="hex_button" />
+                        <div className="hex_button" />
+                        <div className="hex_button " />
                         <div data-token="8.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
@@ -90,147 +97,61 @@ const Maps = () => {
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
                         className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
                         <div data-token="11.MOV"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
+                        className="hex_button active" />
+                        <div className="hex_button "/>
+                        <div className="hex_button" />
+                        <div className="hex_button smaller" />
+                        <div className="hex_button" />
+                        <div className="hex_button"/>
                         <div data-token="12.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
+                        className="hex_button active smaller" />
                         <div data-token="13.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
+                        className="hex_button active "/>
                         <div data-token="14.jpg"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button bigger" />
-                        <div className="hex_button" />
+                        className="hex_button active"/>
                         <div data-token="15.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active smaller" />
+                        className="hex_button active "/>
                         <div data-token="16.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
+                        className="hex_button active smaller"/>
                         <div data-token="17.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
                         className="hex_button active" />
+                        <div className="hex_button" />
                         <div data-token="18.jpeg"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active smaller" />
+                        className="hex_button active " />
                         <div data-token="19.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button smaller" />
+                        className="hex_button active " />
                         <div data-token="20.png"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="21.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
-                        <div data-token="22.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
-                        <div data-token="0.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
-                        <div className="hex_button smaller" />
+                        className="hex_button active " />
                         <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
-                        <div data-token="1.mp4"
+                        <div data-token="21.jpeg"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active bigger" />
-                        <div data-token="2.png"
+                        className="hex_button active "/>
+                        <div data-token="22.mp4"
                         onClick={e => getNFT(e.target)}
                         onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="3.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="4.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="5.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="6.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div data-token="7.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="8.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="9.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button smaller" />
-                        <div className="hex_button smaller" />
-                        <div data-token="10.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div data-token="11.MOV"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active" />
-                        <div className="hex_button" />
-                        <div className="hex_button smaller" />
-                        <div data-token="12.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active half-heigh" />
-                        <div data-token="13.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active half-heigh smaller" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div className="hex_button" />
-                        <div data-token="14.png"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active smaller" />
-                        <div data-token="15.mp4"
-                        onClick={e => getNFT(e.target)}
-                        onMouseOver={e => renderNFT(e.target)}
-                        className="hex_button active smaller" />
-                        <div className="hex_button" />
+                        className="hex_button active " />
                     </div>
                     <img src="images/CerroDeLaEstrella.png" className="park_image" alt="Cerro de la Estrella" />
                 </div>
