@@ -20,33 +20,74 @@ export async function LogIn() {
     }
 }
 
-export async function getNFT (token: string){
+export async function getArtist(ipfs: string){
     const provider = new ethers.BrowserProvider(window.ethereum)
     const signer = await provider.getSigner()
-    const contract = '0x34A4894DE93f0694628390b40F4154c84d587cf7'
+    const contract = '0x3cc1B12D7aaAeee0D9cFB251EA7e8FbC9322c151'
     const abi = require('./abi/split_royalties_abi.json')
     const mintNFTContract = new ethers.Contract(contract, abi, signer)
-    const metadataUri = `ipfs://QmP7CUTQKDBc43QiuBYjrq73gx2cwfmM19FQGFkUZwopzi/${token}.json`
-    console.log(metadataUri)
-    try {
-        const newTransaction = await mintNFTContract.payToMint(
-            signer.address, metadataUri,{
-                value: 1000000000000000
-            }
-        )
+    const artist = await mintNFTContract.viewArtist(ipfs)
+    console.log(artist)
+}
 
-        const recipt = await newTransaction.wait()
-        console.log(newTransaction)
-        console.log(recipt)
-        return {
-            "signer": signer.address,
-            "transaction": newTransaction,
-            "recipt": recipt
-        }  
-    } catch (e) {
-        console.log("catch")
-        console.log(e)
-        return "Problem with minting"
+export async function addArtist(){
+    const provider = new ethers.BrowserProvider(window.ethereum)
+    const signer = await provider.getSigner()
+    const contract = '0x3cc1B12D7aaAeee0D9cFB251EA7e8FbC9322c151'
+    const abi = require('./abi/split_royalties_abi.json')
+    const mintNFTContract = new ethers.Contract(contract, abi, signer)
+    const artist = await mintNFTContract.addToMap("", "", "")
+    console.log(artist)
+}
+
+export async function getNFT (token: string){
+    const provider = new ethers.BrowserProvider(window.ethereum)
+    try{
+        const signer = await provider.getSigner()
+        const contract = '0x3cc1B12D7aaAeee0D9cFB251EA7e8FbC9322c151'
+        const abi = require('./abi/split_royalties_abi.json')
+        const mintNFTContract = new ethers.Contract(contract, abi, signer)
+        let metadataUri = `ipfs://QmVasWRz552smALBSEGaRJGmREjivpT4PSUKFdSY7BiHAY/${token}.json`
+        if(token == "20"){
+            metadataUri = "ipfs://QmPo9KG5vif9PjHUY44GSKPWAa1bGqprpVhr21qXeEVoZe"
+            console.log(metadataUri)
+        }
+        console.log(metadataUri)
+        try {
+            const newTransaction = await mintNFTContract.payToMint(
+                signer.address, metadataUri,{
+                    value: ethers.parseEther('0.016')
+                }
+            )
+            await newTransaction.wait()
+            const nextToken = await mintNFTContract.lastToken()
+
+            const token = Number(nextToken) - 1
+
+            return {
+                "contract": contract,
+                "token": token
+            }  
+        } catch (e: any) {
+            console.log("catch")
+            console.log(e.message)
+            if(e.message.includes("Gas")){
+                console.log("not enough money")
+                return {
+                    "contract": contract,
+                    "error": "Add Funds to Wallet, Base Network ETH"
+                }
+            }
+            if(e.message.includes('rejected')){
+                console.log("Rejected")
+                return {
+                    "contract": contract,
+                    "error": "Wallet Signature Rejected"
+                }
+            }
+        }
+    }catch{
+        console.log("LogIn")
     }
   }
   

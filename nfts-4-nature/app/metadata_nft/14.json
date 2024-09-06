@@ -1,0 +1,11 @@
+{
+    "name": "Tlacomiztli",
+    "description": "Artista inmersivo y audiovisual con base en la ciudad de México. Inspirado en los animales endémicos y en peligro de extinción que mantienen conexión con la Cosmogonía de Mesoamérica.",
+    "image": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/14.jpg",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Mocre"
+        }
+    ]
+}

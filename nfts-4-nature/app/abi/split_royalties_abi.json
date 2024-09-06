@@ -38,70 +38,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "numerator",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "denominator",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC2981InvalidDefaultRoyalty",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			}
-		],
-		"name": "ERC2981InvalidDefaultRoyaltyReceiver",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "numerator",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "denominator",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC2981InvalidTokenRoyalty",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			}
-		],
-		"name": "ERC2981InvalidTokenRoyaltyReceiver",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
 				"name": "sender",
 				"type": "address"
@@ -494,6 +430,19 @@
 	},
 	{
 		"inputs": [],
+		"name": "lastToken",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "name",
 		"outputs": [
 			{
@@ -608,48 +557,6 @@
 		"name": "renounceOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "royaltyFee",
-		"outputs": [
-			{
-				"internalType": "uint96",
-				"name": "",
-				"type": "uint96"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "salePrice",
-				"type": "uint256"
-			}
-		],
-		"name": "royaltyInfo",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{

@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { LogIn } from '../nft_api'
+import Image from 'next/image'
 
 declare var window: any
 
@@ -31,12 +32,11 @@ const LogInPage = () => {
                     <h1 className='title'>CEIBA 3.0</h1>
                 </div>
                 <div className="login-image column-cont">
-                    <img src="/images/Main.png" alt="libelula" />
+                    <Image src="/images/Main.png" alt="libelula" width={500} height={300}/>
                     <h3 className='title'>NFTS FOR NATURE</h3>
                 </div>
                 <div className='space-around-cont buttons-cont'>
                     <button className='square-button' onClick={signUp}>Connect Wallet</button>
-                    <button className='square-button' onClick={noWallet}>Continue Without Wallet</button>
                 </div>
             </div>
         </div>

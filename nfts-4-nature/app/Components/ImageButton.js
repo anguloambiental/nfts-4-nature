@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const ImageButton = ({label, go_to, img_src}) => {
     const router = useRouter()
@@ -10,7 +11,7 @@ const ImageButton = ({label, go_to, img_src}) => {
 
     return (
         <div className='image-button' onClick={handleRedirect}>
-            <img src={`/${img_src}`} alt={go_to}/>
+            <Image src={`/${img_src}`} alt={go_to} width={500} height={300}/>
             <span>{label}</span>
         </div>
     )

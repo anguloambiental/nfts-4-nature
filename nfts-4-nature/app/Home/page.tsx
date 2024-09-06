@@ -1,4 +1,5 @@
 import ImageButton from '../Components/ImageButton'
+import Image from 'next/image'
 
 const Home = () => {
 
@@ -8,13 +9,13 @@ const Home = () => {
     return (
         <div className="main-cont">
             <div className='row-cont profile-hdr'>
-                <img src={libelula} style={invert} alt="libelula" />
+                <Image src={libelula} style={invert} alt="libelula" width={300} height={300}/>
                 <div className='column-cont hdr-img'>
                     <h1 className='title'>CEIBA 3.0</h1>
-                    <img src="/images/Main.png" alt="libelula" />
+                    <Image src="/images/Main.png" alt="libelula" width={300} height={300} />
                     <h3 className='title'>NFTS FOR NATURE</h3>
                 </div>
-                <img src={libelula} alt="libelula" />
+                <Image src={libelula} alt="libelula" width={300} height={300}/>
             </div>
             <div className='column-cont profile-buttons'>
                 <div className='row-cont'>
