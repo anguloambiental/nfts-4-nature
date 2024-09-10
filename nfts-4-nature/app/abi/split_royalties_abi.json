@@ -8,7 +8,17 @@
 			},
 			{
 				"internalType": "address payable",
-				"name": "_nox",
+				"name": "_gallery",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_artist",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_conservation",
 				"type": "address"
 			},
 			{
@@ -25,15 +35,74 @@
 				"internalType": "address payable",
 				"name": "_den",
 				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_conservation",
-				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "numerator",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "denominator",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC2981InvalidDefaultRoyalty",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "ERC2981InvalidDefaultRoyaltyReceiver",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numerator",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "denominator",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC2981InvalidTokenRoyalty",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "ERC2981InvalidTokenRoyaltyReceiver",
+		"type": "error"
 	},
 	{
 		"inputs": [
@@ -289,22 +358,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_artistWallet",
-				"type": "address"
-			},
-			{
 				"internalType": "string",
 				"name": "_uri",
 				"type": "string"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_price",
+				"name": "price",
 				"type": "uint256"
 			}
 		],
-		"name": "addToMap",
+		"name": "addArt",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -361,12 +425,12 @@
 	},
 	{
 		"inputs": [],
-		"name": "concervationPercentage",
+		"name": "conservationPercentage",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "uint8",
 				"name": "",
-				"type": "uint256"
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -374,7 +438,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "fivePercentage",
+		"name": "galleryPercentage",
 		"outputs": [
 			{
 				"internalType": "uint8",
@@ -465,32 +529,14 @@
 		"name": "nftInfo",
 		"outputs": [
 			{
-				"internalType": "address",
-				"name": "artistWallet",
-				"type": "address"
-			},
-			{
 				"internalType": "uint8",
 				"name": "timesMinted",
 				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
-				"name": "price",
+				"name": "mintPrice",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "noxPercentage",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -547,6 +593,11 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "payable",
@@ -557,6 +608,48 @@
 		"name": "renounceOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "royaltyFee",
+		"outputs": [
+			{
+				"internalType": "uint96",
+				"name": "",
+				"type": "uint96"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "salePrice",
+				"type": "uint256"
+			}
+		],
+		"name": "royaltyInfo",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -679,19 +772,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "tenPercentage",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -744,63 +824,6 @@
 		"name": "transferOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_uri",
-				"type": "string"
-			}
-		],
-		"name": "viewArtist",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_uri",
-				"type": "string"
-			}
-		],
-		"name": "viewPrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_uri",
-				"type": "string"
-			}
-		],
-		"name": "viewTimesMinted",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	}
 ]

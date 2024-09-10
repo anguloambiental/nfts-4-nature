@@ -40,15 +40,14 @@ export async function addArtist(){
     console.log(artist)
 }
 
-export async function getNFT (token: string){
+export async function getNFT (token: string, contract: string){
     const provider = new ethers.BrowserProvider(window.ethereum)
     try{
         const signer = await provider.getSigner()
-        const contract = '0x3cc1B12D7aaAeee0D9cFB251EA7e8FbC9322c151'
         const abi = require('./abi/split_royalties_abi.json')
         const mintNFTContract = new ethers.Contract(contract, abi, signer)
-        let metadataUri = `ipfs://QmVasWRz552smALBSEGaRJGmREjivpT4PSUKFdSY7BiHAY/${token}.json`
-        if(token == "20"){
+        let metadataUri = `ipfs://QmP7CUTQKDBc43QiuBYjrq73gx2cwfmM19FQGFkUZwopzi/${token}.json`
+        if(token === "20"){
             metadataUri = "ipfs://QmPo9KG5vif9PjHUY44GSKPWAa1bGqprpVhr21qXeEVoZe"
             console.log(metadataUri)
         }
@@ -66,7 +65,7 @@ export async function getNFT (token: string){
 
             return {
                 "contract": contract,
-                "token": token
+                "token": 0
             }  
         } catch (e: any) {
             console.log("catch")

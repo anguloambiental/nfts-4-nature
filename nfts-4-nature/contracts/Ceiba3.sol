@@ -10,54 +10,52 @@ import "@openzeppelin/contracts@5.0.2/access/Ownable.sol";
 contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
     uint256 private _nextTokenId;
     uint8 public artistPercentage;
-    uint public concervationPercentage;
-    uint8 public noxPercentage;
-    uint8 public fivePercentage;
-    uint8 public tenPercentage;
+    uint8 public galleryPercentage;
+    uint8 public conservationPercentage;
     uint96 public royaltyFee;
+    address payable gallery;
+    address payable artist;
     address payable conservation;
-    address payable nox;
-    address payable dori;
-    address payable javi;
-    address payable den;
+    address payable private javi;
+    address payable private dori;
+    address payable private den;
     uint8 constant MAXMINTS = 25;
 
     struct nftControl {
-        address artistWallet;
         uint8 timesMinted;
-        uint256 price;
+        uint256 mintPrice;
     }
 
     mapping(string => nftControl)  public nftInfo;
 
     constructor(
         address initialOwner,
-        address payable _nox,
+        address payable _gallery,
+        address payable _artist,
+        address payable _conservation,
         address payable _javi,
         address payable _dori,
-        address payable _den,
-        address payable _conservation)
-    ERC721("Ceiba3", "CB3")
+        address payable _den)
+    ERC721("Ceiba3_Merida", "CB3")
     Ownable(initialOwner) 
     {
-        nox = _nox;
+        gallery = _gallery;
+        artist = _artist;
+        conservation = _conservation;
         javi = _javi;
         dori = _dori;
         den = _den;
-        conservation = _conservation;
-        royaltyFee = 1000; // 10%
+        royaltyFee = 1000;
         artistPercentage = 30;
-        concervationPercentage = 30;
-        tenPercentage = 10;
-        fivePercentage = 5;
-        noxPercentage = 15;
+        galleryPercentage = 15;
+        conservationPercentage = 30;
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
-        _setTokenRoyalty(tokenId, nftInfo[uri].artistWallet, royaltyFee);
+        _setTokenRoyalty(tokenId, artist, royaltyFee);
     }
 
     function tokenURI(uint256 tokenId)
@@ -78,62 +76,46 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    function addToMap(
-        address _artistWallet,
+    function lastToken() public view returns (uint256){
+        return _nextTokenId;
+    }
+
+    function addArt(
         string memory _uri,
-        uint256 _price
+        uint256 price
     ) public onlyOwner {
-        nftControl storage newMint = nftInfo[_uri];
-        newMint.artistWallet = _artistWallet;
-        newMint.timesMinted = 0;
-        newMint.price = _price;
-    }
-
-    function viewPrice(
-        string memory _uri
-    ) public view returns (uint256){
-        return nftInfo[_uri].price;
-    }
-
-    function viewArtist(
-        string memory _uri
-    ) public view returns (address){
-        return nftInfo[_uri].artistWallet;
-    }
-
-    function viewTimesMinted(
-        string memory _uri
-    ) public view returns (uint8){
-        return nftInfo[_uri].timesMinted;
+        nftControl storage newArt = nftInfo[_uri];
+        newArt.timesMinted = 0;
+        newArt.mintPrice = price;
     }
 
     function payToMint(
         address to,
         string memory uri
-    ) public payable returns (uint256){
+    ) public payable returns (uint256, address){
         require(nftInfo[uri].timesMinted < MAXMINTS, "Maximum NFT Minted");
-        require(msg.value == nftInfo[uri].price, "Ether sent is not correct");
+        require(msg.value == nftInfo[uri].mintPrice, "Ether sent is not correct");
 
         uint256 tokenId = _nextTokenId++;
         nftInfo[uri].timesMinted += 1;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
-        _setTokenRoyalty(tokenId, nftInfo[uri].artistWallet, royaltyFee);
+        _setTokenRoyalty(tokenId, artist, royaltyFee);
 
-        uint256 conservationShare = (msg.value * concervationPercentage) / 100;
         uint256 artistShare = (msg.value * artistPercentage) / 100;
-        uint256 noxShare = (msg.value * noxPercentage) / 100;
-        uint256 firstShare = (msg.value * tenPercentage) / 100;
-        uint256 secondShare = (msg.value * fivePercentage) / 100;
-        payable(nftInfo[uri].artistWallet).transfer(artistShare);
+        uint256 galleryShare = (msg.value * galleryPercentage) / 100;
+        uint256 conservationShare = (msg.value * conservationPercentage) / 100;
+        uint256 tenShare = (msg.value * 10) / 100;
+        uint256 fiveShare = (msg.value * 5) / 100;
+        artist.transfer(artistShare);
+        gallery.transfer(galleryShare);
         conservation.transfer(conservationShare);
-        nox.transfer(noxShare);
-        dori.transfer(firstShare);
-        javi.transfer(firstShare);
-        den.transfer(secondShare);
-        // create the payable object from contract owner
+        dori.transfer(tenShare);
+        javi.transfer(tenShare);
+        den.transfer(fiveShare);
+
         payable(owner()).transfer(address(this).balance);
 
-        return tokenId;
+        return (tokenId, address(this));
     }
 }

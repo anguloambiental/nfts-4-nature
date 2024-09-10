@@ -5,7 +5,7 @@ import { getNFT } from "@/app/nft_api"
 import { useState } from "react"
 import Image from "next/image"
 
-export default function Page({ params }: { params: { token_id: string } }) {
+export default function Page({ params }: { params: { token: string } }) {
 
 const [purchased, setPurchased ] = useState(false)
 const [purchasedToken, setToken] = useState(-1)
@@ -24,13 +24,14 @@ let invert = { "transform": "scaleX(-1)" }
   "margin": "0% 0%"
   }
 
-  const info = require(`./../../metadata_nft/${params.token_id.split('.')[0]}.json`)
-  console.log(info)
+  const info = require(`./../../../metadata_nft_dev/${params.token.split('.')[0]}.json`)
+  console.log(info.attributes[1].value)
 
   function mintNft(){
     setPending(true)
     setPurchased(false)
-    getNFT(params.token_id.split('.')[0]).then(data => {
+    console.log("mint")
+    getNFT(params.token, info.attributes[1].value).then(data => {
       if(data?.token){
         setToken(data.token)
         setContract(data.contract)
@@ -60,10 +61,10 @@ let invert = { "transform": "scaleX(-1)" }
       <Image src={libelula} style={invert} alt="libelula" width={200} height={200} />
       <div className='column-cont hdr-img'>
         <h1 className='title'>GET THIS NFT</h1>
-        {params.token_id.split('.')[1] == 'mp4' ? <video width="500px" height="500px" loop autoPlay playsInline muted preload="none" >
-                        <source src={`/images/piezas/${params.token_id}`} type="video/mp4" />
+        {params.token == 'mp4' ? <video width="500px" height="500px" loop autoPlay playsInline muted preload="none" >
+                        <source src={`/images/artworks/${params.token}.png`} type="video/mp4" />
                         Browser not supported to play video
-                    </video>  : <img src={`/images/piezas/${params.token_id}`} alt="nft" width="500px" height="500px" />}
+                    </video>  : <img src={`/images/artworks/${params.token}.png`} alt="nft" width="500px" height="500px" />}
         <h3 className='title'>AND SUPPORT THE PARK!</h3>
       </div>
       <Image src={libelula} alt="libelula" width={200} height={200} />

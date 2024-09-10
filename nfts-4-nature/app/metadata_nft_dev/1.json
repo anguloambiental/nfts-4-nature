@@ -1,0 +1,17 @@
+{
+    "name": "Ceiba3 Tree",
+    "description": "NFT Test",
+    "image": "ipfs://QmY2FZx4ayeaXRxrVn1XQT4dF21oSK1y82ppnSm3wPq5ZL/01.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Javi"
+        }, {
+            "trait_type": "contract",
+            "value": "0x1a9407bbe1Ea556f8D364648ee9486AE39E6978C"
+        }, {
+            "trait_type": "creator",
+            "value": "0x51413CD4A20A7Bbc6fEBc869c6d152Df9dac2d09"
+        }
+    ]
+}

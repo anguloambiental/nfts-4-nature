@@ -1,0 +1,17 @@
+{
+    "name": "Ceiba3 Fly",
+    "description": "NFT Test 2",
+    "image": "ipfs://QmY2FZx4ayeaXRxrVn1XQT4dF21oSK1y82ppnSm3wPq5ZL/02.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Javi 2"
+        }, {
+            "trait_type": "contract",
+            "value": "0xd080D8Ed65187269C48e0655A11ceED8B73C468b"
+        }, {
+            "trait_type": "creator",
+            "value": "0x0e1cC9800c76BDcE60F5A86D102365E5DE9877d5"
+        }
+    ]
+}
