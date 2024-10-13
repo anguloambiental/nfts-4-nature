@@ -1,0 +1,18 @@
+{
+    "name": "Magia y dualidad",
+    "description": "En la oscuridad todos somos iguales, demasiada luz puede cegar. La unidad converge en las raíces.",
+    "image": "ipfs://QmdGDzxjLjwCpMXsRcnHGAEzKkaf3iF1zLYJrVtNxi8UkZ/26.png",
+    "animation_url": "ipfs://Qmc6LjvcrcCr1ayGDpkGB8kgWQXgfDhwMAWruXhw267Fqk/26.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Muriellherm"
+        }, {
+            "trait_type": "contract",
+            "value": "0xa4c947Cb4Dd328b76b84daB9D229268Ac35C904d"
+        }, {
+            "trait_type": "creator",
+            "value": "0x7a2Efc8d0a2Fd1Fbe40163171F89Dd54078f6067"
+        }
+    ]
+}

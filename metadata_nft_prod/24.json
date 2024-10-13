@@ -1,0 +1,17 @@
+{
+    "name": "RWA by Marea upcyccling",
+    "description": "El minteo de esta pieza incuye una prenda reciclada de tu talla con el diseño impreso. Y el nombre de una comunidad que gustes.",
+    "image": "ipfs://Qmc6LjvcrcCr1ayGDpkGB8kgWQXgfDhwMAWruXhw267Fqk/24.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "@Marea_upcycling"
+        }, {
+            "trait_type": "contract",
+            "value": "0xaEB933bA794f6D5C7f7E0f7cd90E450842c9c93F"
+        }, {
+            "trait_type": "creator",
+            "value": "0xba421e0edff3fb6ff69aa63493368b404fdee495"
+        }
+    ]
+}

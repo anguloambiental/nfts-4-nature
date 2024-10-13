@@ -1,0 +1,18 @@
+{
+    "name": "Xiuhtecuhtli asciende al Cerro de la Estrella",
+    "description": "Hola soy Zandor y hoy les comparto una animación en la que plasmo una interpretación de la historia de; Xiuhtecuhtli asciende al Cerro de la Estrella, medita frente a un volcán en erupción. Su armadura de lava cambia de rojo a azul, simbolizando la plena manifestación de su poder ancestral, lo cual hace que se cree su u contraparte femenina era la diosa Chantico. Esta creada a través de Dream by Wombo y de Krea.ia en su modalidad de video.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/15.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/15.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Zandor"
+        }, {
+            "trait_type": "contract",
+            "value": "0x0829705D7422aEB5AEE22219B34fAF73237ecf20"
+        }, {
+            "trait_type": "creator",
+            "value": "0xB1dd52119917804D2e8f416423cC1474CFf959eb"
+        }
+    ]
+}

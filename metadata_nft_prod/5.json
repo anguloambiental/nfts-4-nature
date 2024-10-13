@@ -1,0 +1,18 @@
+{
+    "name": "Ecos del Futuro Maya",
+    "description": "Atreves de escenas de majestuosos cenotes y arquitecturas ancestrales, represento un mundo donde la cultura Maya y la innovación coexisten en armonía.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/5.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/5.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "skymaya"
+        }, {
+            "trait_type": "contract",
+            "value": "0x1E0589F8E12be8Ea19cDcDfF9380C9f59E3363Fb"
+        }, {
+            "trait_type": "creator",
+            "value": "0x913527547c578A1cF2F5949A8178312E94FEc5bc"
+        }
+    ]
+}

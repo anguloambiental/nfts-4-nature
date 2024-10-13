@@ -1,0 +1,17 @@
+{
+    "name": "Ipalnemoani Cuahuitl",
+    "description": "Ipalnemoani Cuahuitl es parte de la serie Miniaturas: un proyecto de creación de objetos culturales con inteligencia artificial. A partir del estudio de miniaturas (del latin miniare, “colorear con minia” tetraóxido de plomo) en oriente, manuscritos iluminados en occidente y códices en mesoamerica, he generado un cuerpo de obra visual a por medio de algorítmos de generación de imágenes. Miniatura nace de un estudios de la forma con la que las LLM y sus bases de datos intepretan imágenes provenientes de manuscritos antiguos, y cómo las IA pueden reimaginar materiales culturales mezclando historias y confundiendo tiempo.",
+    "image": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/19.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "canekzapata"
+        }, {
+            "trait_type": "contract",
+            "value": "0x69eA9F7FFFC913974f7A0d79765911Ee68522410"
+        }, {
+            "trait_type": "creator",
+            "value": "0xB1aFA50dFfB29c8cBa9371E838BB298EC6f6Ba0a"
+        }
+    ]
+}

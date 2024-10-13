@@ -1,0 +1,18 @@
+{
+    "name": "Whispers of Teotihuacán and Blue Agave Dreams/Susurros de Teotihuacán y Sueños de Agave Azul",
+    "description": "Sumérgete en un viaje visual por México, donde los mundos antiguo y moderno convergen. Desde las majestuosas pirámides de Teotihuacán hasta los vibrantes campos de agave en Jalisco, mi obra refleja la profunda conexión entre el patrimonio cultural de México y sus innovaciones orientadas hacia el futuro.",
+    "image": "ipfs://QmdGDzxjLjwCpMXsRcnHGAEzKkaf3iF1zLYJrVtNxi8UkZ/25.png",
+    "animation_url": "ipfs://Qmc6LjvcrcCr1ayGDpkGB8kgWQXgfDhwMAWruXhw267Fqk/25.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Muriellherm"
+        }, {
+            "trait_type": "contract",
+            "value": "0x500C454EC4e95189847b3534a6d7001D39CF0FF1"
+        }, {
+            "trait_type": "creator",
+            "value": "0x0E55DcA92272709D2d3DE0E2Cd6b7547EF9bbfE3"
+        }
+    ]
+}

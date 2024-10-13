@@ -1,0 +1,17 @@
+{
+    "name": "25",
+    "description":"El fuego nuevo es una ceremonia de renovación de un ciclo, el que la flama sea el Cacomixtle simboliza un reinicio para las especies de animales en el cerro de la estrella, la flama está conformada tanto por el cerro mismo pero por las siluetas de generaciones  que antes han alimentado el fuego y realizado este ritual.",
+    "image": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/21.jpeg",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "@NONE32X32"
+        }, {
+            "trait_type": "contract",
+            "value": "0x43f09469B414Bfbe3E4C097fB7A96e639141D89C"
+        }, {
+            "trait_type": "creator",
+            "value": "0x4F99D481981f464d824592604f58BCeE9Cb8ABF6"
+        }
+    ]
+}

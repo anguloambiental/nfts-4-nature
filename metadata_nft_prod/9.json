@@ -1,0 +1,18 @@
+{
+    "name": "Yacana Catachillay. La respiración de la luz es la quietud de la oscuridad.",
+    "description": "Para las culturas andinas, detrás de cada llama singular, se halla la Llama celeste, el animal arquetípico, inscripto en la eternidad de lo divino. La llama terrestre es un reflejo de la llama titilante en el cielo estrellado bajo la forma de una constelación. Somos constelaciones terrestres de luz que respiran en la quietud de la oscuridad. El equilibrio del movimiento preciso, la danza sutil de luz y oscuridad.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/9.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/9.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "@caperucita_nft"
+        }, {
+            "trait_type": "contract",
+            "value": "0xAb626D39E7f7b41C9838fC36745e762A3584B78e"
+        }, {
+            "trait_type": "creator",
+            "value": "0xE5a8eDb7b89abDb5102Be6fc6519526740a31AF3"
+        }
+    ]
+}

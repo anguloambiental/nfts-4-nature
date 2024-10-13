@@ -1,0 +1,18 @@
+{
+    "name": "Ndiidxi Tla'aa, la Iguana de Piedra Montaña",
+    "description": "El dios Ndiidxi Tla'aa, la Iguana de Piedra Montaña, usó el fuego de la transmutación para convertir la roca en aire y revelar una fuente oculta de agua durante una sequía. Su cráneo, una paradoja que fusiona vida y muerte, simbolizaba la esencia vital de la tierra. Gracias a esta guía divina, el campamento guerrero Cozijoeza, enfrentado a la escasez, prosperó y floreció. La leyenda de Ndiidxi Tla'aa perduró, enseñando la importancia del equilibrio entre los elementos y la fidelidad a la naturaleza.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/16.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/16.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "@Pablo_Cotama"
+        }, {
+            "trait_type": "contract",
+            "value": "0xEAf0F6078Eff0E4E295165c35E6d709f545b5a51"
+        }, {
+            "trait_type": "creator",
+            "value": "0x5Ef3cC2883000Ce910D6054C7FFB07C6E1E9D92A"
+        }
+    ]
+}
