@@ -1,0 +1,18 @@
+{
+    "name": "Kerepakupai vená / Salto del lugar más Profundo",
+    "description": "Ese día caminé sobre la espesa selva, escuchando el tremor de tus aguas Kerepakupai vená. Este significado proveniente de los idiomas Caríbe, específicamente de la etnia Pemón-Arecuna, ubicadas en el Parque Nacional Canaima, Venezuela.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/3.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/3.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Bocagrandiart"
+        }, {
+            "trait_type": "contract",
+            "value": "0x8719bb4d682e9A3da2701b57e19330E384021ea8"
+        }, {
+            "trait_type": "creator",
+            "value": "0x576b7352dB0E799092d9cFa18697C7B2f2B16321"
+        }
+    ]
+}

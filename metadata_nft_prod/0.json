@@ -1,0 +1,18 @@
+{
+    "name": "Renacimiento Ancestral",
+    "description": "Me inspira la cultura de México y cómo fusionarla con tecnología para crear algo nuevo. Quiero compartir con mis holders piezas únicas que no solo celebran nuestras raíces, sino que también muestran cómo podemos reinventarlas en un mundo moderno, ofreciendo arte que conecta tradición y futuro de manera innovadora y personal.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/0.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/0.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Jerry_HZN"
+        }, {
+            "trait_type": "contract",
+            "value": "0xDd3B49d9A1e52b6e925Fc3D300E9B33A1A931D24"
+        }, {
+            "trait_type": "creator",
+            "value": "0x248740F6A6D6f84F83FDD6CD8401987caBFaCA8d"
+        }
+    ]
+}

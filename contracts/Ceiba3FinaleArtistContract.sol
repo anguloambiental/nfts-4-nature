@@ -7,6 +7,12 @@ import "@openzeppelin/contracts@5.0.2/token/ERC721/extensions/ERC721URIStorage.s
 import "@openzeppelin/contracts@5.0.2/token/ERC721/extensions/ERC721Royalty.sol";
 import "@openzeppelin/contracts@5.0.2/access/Ownable.sol";
 
+// Contract between Artist and Ceiba to be able to subscribe multiple artworks
+// to be to mint through Ceiba Products and give a Fee to Ceiba for 
+// enviromental projects
+// MAX MINTS 25
+// Royalties Fee for Second Sale 10%
+
 contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
     uint256 private _nextTokenId;
     uint8 public artistPercentage;
@@ -21,12 +27,15 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
     address payable private den;
     uint8 constant MAXMINTS = 25;
 
-    struct nftControl {
+    // Structure control for NFT Minting and related arts of the Artist
+    struct artControl {
+        string tokenUri;
+        string edition;
         uint8 timesMinted;
         uint256 mintPrice;
     }
 
-    mapping(string => nftControl)  public nftInfo;
+    mapping(uint8 => artControl)  public nftInfo;
 
     constructor(
         address initialOwner,
@@ -36,7 +45,7 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
         address payable _javi,
         address payable _dori,
         address payable _den)
-    ERC721("Ceiba3_Merida", "CB3")
+    ERC721("Ceiba3_Artist", "CB3")
     Ownable(initialOwner) 
     {
         gallery = _gallery;
@@ -81,25 +90,29 @@ contract Ceiba3 is ERC721, ERC721URIStorage, ERC721Royalty, Ownable {
     }
 
     function addArt(
-        string memory _uri,
+        uint8 _pieceNumber,
+        string memory _tokenUri,
+        string memory _edition,
         uint256 price
     ) public onlyOwner {
-        nftControl storage newArt = nftInfo[_uri];
+        artControl storage newArt = nftInfo[_pieceNumber];
+        newArt.tokenUri = _tokenUri;
+        newArt.edition = _edition;
         newArt.timesMinted = 0;
         newArt.mintPrice = price;
     }
 
     function payToMint(
         address to,
-        string memory uri
+        uint8 artNumber
     ) public payable returns (uint256, address){
-        require(nftInfo[uri].timesMinted < MAXMINTS, "Maximum NFT Minted");
-        require(msg.value == nftInfo[uri].mintPrice, "Ether sent is not correct");
+        require(nftInfo[artNumber].timesMinted < MAXMINTS, "Maximum NFT Minted");
+        require(msg.value == nftInfo[artNumber].mintPrice, "Ether sent is not correct");
 
         uint256 tokenId = _nextTokenId++;
-        nftInfo[uri].timesMinted += 1;
+        nftInfo[artNumber].timesMinted += 1;
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
+        _setTokenURI(tokenId, nftInfo[artNumber].tokenUri);
         _setTokenRoyalty(tokenId, artist, royaltyFee);
 
         uint256 artistShare = (msg.value * artistPercentage) / 100;

@@ -1,0 +1,18 @@
+{
+    "name": "Ancestral Future",
+    "description": "Multidisciplinary artist - 3D, 2D, photography, motion, AI collaborator. Exploring soft aesthetics, surrealism. Inspired by dreams, nature and the sky. Lover of pink, pastel, clouds, the moon, glitter and cute things.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/11.png",
+    "animation_url": "ipfs://Qmc6LjvcrcCr1ayGDpkGB8kgWQXgfDhwMAWruXhw267Fqk/11.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "shootthismoment"
+        }, {
+            "trait_type": "contract",
+            "value": "0xE0eA3F90DBeC441a70772e65A24f079A5e169970"
+        }, {
+            "trait_type": "creator",
+            "value": "0xE347e862Fb4942191Bb0A4F347214E5CdF24CB55"
+        }
+    ]
+}

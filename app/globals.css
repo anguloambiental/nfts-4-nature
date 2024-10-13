@@ -1,0 +1,153 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  text-align: left;
+  max-width: 1000px;
+  width: 95%;
+}
+
+img {
+  object-fit: contain;
+}
+
+main {
+  height: 100%;
+  width: 92%;
+  margin: 0 4%;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.3;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.main-image{
+  object-fit: contain;
+  width: 100%;
+  margin: 15% 0;
+}
+
+.p-title{
+  display: block;
+  font-weight:bold;
+  font-size: 1.3rem;
+  margin: 3% 0;
+}
+
+.title-w-images{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 3% 0;
+}
+
+.title-w-images > img{
+  object-fit: contain;
+  width: 5%;
+  min-width: 45px;
+  margin: 0 3%;
+}
+
+.bigger-font{
+  font-size: 1.15rem;
+}
+
+.gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 10%;
+}
+
+.gallery > div{
+  width: 30%;
+  height: 20%;
+  min-width: 250px;
+  margin-bottom: 5%;
+}
+
+.gallery > div > img{
+  object-fit: contain;
+  width: 100%;
+}
+
+.square-button{
+  background-color: #222224;
+  color: #f7efac;
+  padding: 15px;
+  min-width: 260px;
+  min-height: 60px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin-bottom: 5%;
+}
+
+.margin-small{
+  margin: 2% 0;
+}
+
+.margin-top{
+  margin-top: 2%;
+}
+
+@media (max-width: 900px) {
+  .margin-small{
+    margin: 15% 0;
+  }
+
+  .margin-top{
+    margin-top: 15%;
+  }
+
+  .square-button{
+    margin-bottom: 15%;
+  }
+}

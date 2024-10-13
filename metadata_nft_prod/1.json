@@ -1,0 +1,18 @@
+{
+    "name": "Cosmovisión",
+    "description": "Explorando la fascinación de nuestros antepasados por el cosmos y la Tierra, y su profundo respeto por la naturaleza. Inspirado en sus calendarios, pigmentos, tejidos y materiales orgánicos, este videoarte fusiona instrumentos indígenas y sonidos naturales con paisajes sonoros electrónicos contemporáneos. La pieza evoca rituales ceremoniales, reinterpretando la cosmovisión ancestral y proyectándola en nuestro presente. Co-creada con la ayuda de herramientas de inteligencia artificial, esta obra invita a los espectadores a adentrarse en una experiencia atemporal, donde pasado y futuro se entrelazan en una narrativa sensorial.",
+    "image": "ipfs://QmeSDYuU2nfW2rurbms5yc8zEA8JEdjtAqiqp8MG7nbiaU/1.png",
+    "animation_url": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/1.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "Man-Kha27"
+        }, {
+            "trait_type": "contract",
+            "value": "0xFC0D9EC45D2CA6b0f8F4a3fA751FE393fFEe0020"
+        }, {
+            "trait_type": "creator",
+            "value": "0x0Ed04D0E135d2C8aeD7347E270C718b4Cd88C7C2"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "El futuro",
+    "description": "Un joven que desea compartir su visión del mundo a través del arte digital, intentando crear, está obra intenta crear conciencia de la importancia de la cultura en el futuro.",
+    "image": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/12.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "alej_mendo"
+        }, {
+            "trait_type": "contract",
+            "value": "0x40Da22523708369411130260d887E1d62604f484"
+        }, {
+            "trait_type": "creator",
+            "value": "0x59f7A0da927fbE414650570bca463048DE01562c"
+        }
+    ]
+}

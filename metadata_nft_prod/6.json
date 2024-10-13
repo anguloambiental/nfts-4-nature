@@ -1,0 +1,17 @@
+{
+    "name": "Incaverso",
+    "description": "Creado con stable diffusion + automatic1111 + txt2img + img2img + control net + montaje en photoshop + sd upscaling a 9192 x 6144 px. El Incaverso es un lugar de encuentro donde los descendientes del imperio incaico pueden interactuar con la cultura de sus ancestros. Gracias a la tecnología moderna, diseñada para difundir y desarrollar la cultura incaica, se ha creado una intersección entre lo ancestral y lo contemporáneo. Herramientas como la realidad aumentada, la realidad virtual y la inteligencia artificial permiten que estos dos tiempos coexistan en un solo espacio. Así, la cultura actual se ve influenciada día a día por las raíces ancestrales, creando una cultura más rica que se complementa con un pasado que es presente y futuro.",
+    "image": "ipfs://QmTrLNA4B1nMDj3u6MiYsYFUKSV9XQYnYNTM3xqtHSRRSW/6.png",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "poeticoncept"
+        }, {
+            "trait_type": "contract",
+            "value": "0x313F1e7FB696cc1DA06E006e7417fC5BBb95a54d"
+        }, {
+            "trait_type": "creator",
+            "value": "0x972272ccc520BaE6852f9c5ABC396E1392B4321f"
+        }
+    ]
+}

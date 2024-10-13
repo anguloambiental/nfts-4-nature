@@ -1,0 +1,18 @@
+{
+    "name": "Eres Agua",
+    "description": "Conectar con las raíces es conectar con la naturaleza. Es disfrutar de la madre tierra, sus bendiciones y su imperfecta perfección,tal como nosotrxs lxs seres humanos.",
+    "image": "ipfs://QmdGDzxjLjwCpMXsRcnHGAEzKkaf3iF1zLYJrVtNxi8UkZ/10.png",
+    "animation_url": "ipfs://Qmc6LjvcrcCr1ayGDpkGB8kgWQXgfDhwMAWruXhw267Fqk/10.mp4",
+    "attributes": [
+        {
+            "trait_type": "handle",
+            "value": "ecodorbell y Memo"
+        }, {
+            "trait_type": "contract",
+            "value": "0x472262e50cbb85d64E1948D3Eb762fFD8F88715b"
+        }, {
+            "trait_type": "creator",
+            "value": "0x21910176977DBDeB434ad6E32d0A4b0f184b90A9"
+        }
+    ]
+}
